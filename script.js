@@ -1,43 +1,40 @@
-let characters = JSON.parse(localStorage.getItem("characters")) || []
+let systems = JSON.parse(localStorage.getItem("systems")) || []
 
-function saveCharacter(){
+function saveSystem(){
 
-if(characters.length >= 20){
-alert("キャラは20人まで！")
-return
-}
-
-const character = {
+const system = {
 
 name:document.getElementById("name").value,
-age:document.getElementById("age").value,
-job:document.getElementById("job").value,
-str:document.getElementById("str").value,
-dex:document.getElementById("dex").value
+dice:document.getElementById("dice").value,
+stats:document.getElementById("stats").value,
+rule:document.getElementById("rule").value
 
 }
 
-characters.push(character)
+systems.push(system)
 
-localStorage.setItem("characters",JSON.stringify(characters))
+localStorage.setItem("systems",JSON.stringify(systems))
 
-showCharacters()
+showSystems()
 
 }
 
-function showCharacters(){
+function showSystems(){
 
-const list = document.getElementById("list")
+const list=document.getElementById("list")
 
 list.innerHTML=""
 
-characters.forEach((c,i)=>{
+systems.forEach(s=>{
 
 const div=document.createElement("div")
 
 div.innerHTML=`
-<b>${c.name}</b> (${c.job})
-<button onclick="copyCharacter(${i})">📋コピー</button>
+<b>${s.name}</b>
+<br>
+ダイス:${s.dice}
+<br>
+能力値:${s.stats}
 `
 
 list.appendChild(div)
@@ -46,22 +43,4 @@ list.appendChild(div)
 
 }
 
-function copyCharacter(i){
-
-const c = characters[i]
-
-const text = `
-名前:${c.name}
-年齢:${c.age}
-職業:${c.job}
-STR:${c.str}
-DEX:${c.dex}
-`
-
-navigator.clipboard.writeText(text)
-
-alert("コピーしました！")
-
-}
-
-showCharacters()
+showSystems()
