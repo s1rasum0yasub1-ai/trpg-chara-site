@@ -1,19 +1,18 @@
 body{
-background:#1e1e1e;
+background:#1b1b1b;
 color:white;
 font-family:sans-serif;
 padding:20px;
 }
 
-input{
+input,textarea{
 display:block;
-margin:5px 0 15px 0;
+margin-bottom:10px;
 padding:8px;
-width:200px;
+width:250px;
 }
 
 button{
 padding:10px;
-margin-bottom:20px;
 cursor:pointer;
 }
