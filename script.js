@@ -2,7 +2,7 @@ let systems = JSON.parse(localStorage.getItem("systems")) || []
 
 function saveSystem(){
 
-const system = {
+const system={
 
 name:document.getElementById("name").value,
 dice:document.getElementById("dice").value,
@@ -25,7 +25,7 @@ const list=document.getElementById("list")
 
 list.innerHTML=""
 
-systems.forEach(s=>{
+systems.forEach((s,i)=>{
 
 const div=document.createElement("div")
 
@@ -35,11 +35,26 @@ div.innerHTML=`
 ダイス:${s.dice}
 <br>
 能力値:${s.stats}
+<br>
+<button onclick="playSystem(${i})">🎲試す</button>
 `
 
 list.appendChild(div)
 
 })
+
+}
+
+function playSystem(i){
+
+const s=systems[i]
+
+alert(
+"システム:"+s.name+"\n"+
+"ダイス:"+s.dice+"\n"+
+"能力値:"+s.stats+"\n"+
+"ルール:"+s.rule
+)
 
 }
 
