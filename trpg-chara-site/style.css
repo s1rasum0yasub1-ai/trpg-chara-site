@@ -1,1 +1,19 @@
+body{
+background:#1e1e1e;
+color:white;
+font-family:sans-serif;
+padding:20px;
+}
 
+input{
+display:block;
+margin:5px 0 15px 0;
+padding:8px;
+width:200px;
+}
+
+button{
+padding:10px;
+margin-bottom:20px;
+cursor:pointer;
+}
