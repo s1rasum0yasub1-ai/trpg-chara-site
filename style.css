@@ -1,5 +1,5 @@
 body{
-background:#1b1b1b;
+background:#202020;
 color:white;
 font-family:sans-serif;
 padding:20px;
@@ -9,7 +9,7 @@ input,textarea{
 display:block;
 margin-bottom:10px;
 padding:8px;
-width:250px;
+width:260px;
 }
 
 button{
