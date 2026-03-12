@@ -3,32 +3,29 @@
 
 <head>
 <meta charset="UTF-8">
-<title>TRPGキャラ作成</title>
+<title>自作TRPGメーカー</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1>TRPGキャラ作成</h1>
+<h1>自作TRPG作成</h1>
 
-名前
+システム名
 <input id="name">
 
-年齢
-<input id="age">
+ダイス
+<input id="dice">
 
-職業
-<input id="job">
+能力値
+<input id="stats">
 
-STR
-<input id="str">
+特殊ルール
+<textarea id="rule"></textarea>
 
-DEX
-<input id="dex">
+<button onclick="saveSystem()">保存</button>
 
-<button onclick="saveCharacter()">💾保存</button>
-
-<h2>キャラ一覧</h2>
+<h2>TRPG一覧</h2>
 
 <div id="list"></div>
 
