@@ -58,34 +58,39 @@ localStorage.setItem("systems",JSON.stringify(systems))
 
 showSystems()
 
-}
+function applyBaseSystem(){
 
-function showSystems(){
+const type=document.getElementById("baseSystem").value
 
-const list=document.getElementById("systemList")
+stats=[]
 
-list.innerHTML=""
+if(type==="coc"){
 
-systems.forEach((s,i)=>{
-
-const div=document.createElement("div")
-
-let statText=""
-
-s.stats.forEach(st=>{
-statText+=st.name+"("+st.dice+") "
-})
-
-div.innerHTML=`
-<b>${s.name}</b>
-<br>
-能力値:${statText}
-`
-
-list.appendChild(div)
-
-})
+stats=[
+{name:"STR",dice:"3d6"},
+{name:"CON",dice:"3d6"},
+{name:"POW",dice:"3d6"},
+{name:"DEX",dice:"3d6"},
+{name:"APP",dice:"3d6"},
+{name:"SIZ",dice:"2d6+6"},
+{name:"INT",dice:"2d6+6"},
+{name:"EDU",dice:"2d6+6"}
+]
 
 }
 
-showSystems()
+if(type==="emoklore"){
+
+stats=[
+{name:"身体",dice:"1d6"},
+{name:"器用",dice:"1d6"},
+{name:"精神",dice:"1d6"},
+{name:"五感",dice:"1d6"},
+{name:"知識",dice:"1d6"}
+]
+
+}
+
+renderStats()
+
+}
