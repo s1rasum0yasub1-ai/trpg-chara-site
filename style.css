@@ -1,18 +1,25 @@
 body{
-background:#202020;
+background:#1c1c1c;
 color:white;
 font-family:sans-serif;
 padding:20px;
 }
 
-input,textarea{
+input{
 display:block;
-margin-bottom:10px;
+margin:5px 0 10px 0;
 padding:8px;
-width:260px;
+width:220px;
 }
 
 button{
-padding:10px;
+padding:8px;
+margin:5px 0;
 cursor:pointer;
+}
+
+.statBox{
+border:1px solid #444;
+padding:10px;
+margin-bottom:10px;
 }
