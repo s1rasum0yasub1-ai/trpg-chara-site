@@ -34,6 +34,8 @@ div.innerHTML=`
 
 初期ダイス (例:3d6)
 <input onchange="stats[${i}].dice=this.value">
+<button onclick="rollStat(${i})">🎲振る</button>
+<span id="result${i}"></span>
 
 `
 
@@ -125,5 +127,15 @@ total+=Math.floor(Math.random()*dice)+1
 }
 
 return total+bonus
+
+}
+
+function rollStat(i){
+
+const formula=stats[i].dice
+
+const result=rollDice(formula)
+
+document.getElementById("result"+i).innerText=" = "+result
 
 }
