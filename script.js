@@ -94,3 +94,36 @@ stats=[
 renderStats()
 
 }
+
+function rollDice(formula){
+
+const parts=formula.split("d")
+
+let count=parseInt(parts[0])
+
+let rest=parts[1]
+
+let bonus=0
+
+if(rest.includes("+")){
+
+const r=rest.split("+")
+
+rest=r[0]
+bonus=parseInt(r[1])
+
+}
+
+let dice=parseInt(rest)
+
+let total=0
+
+for(let i=0;i<count;i++){
+
+total+=Math.floor(Math.random()*dice)+1
+
+}
+
+return total+bonus
+
+}
