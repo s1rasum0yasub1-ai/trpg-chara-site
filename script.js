@@ -1,13 +1,54 @@
 let systems = JSON.parse(localStorage.getItem("systems")) || []
 
+let stats = []
+
+function addStat(){
+
+const stat = {
+name:"",
+dice:""
+}
+
+stats.push(stat)
+
+renderStats()
+
+}
+
+function renderStats(){
+
+const container = document.getElementById("stats")
+
+container.innerHTML=""
+
+stats.forEach((s,i)=>{
+
+const div=document.createElement("div")
+
+div.className="statBox"
+
+div.innerHTML=`
+
+能力値名
+<input onchange="stats[${i}].name=this.value">
+
+初期ダイス (例:3d6)
+<input onchange="stats[${i}].dice=this.value">
+
+`
+
+container.appendChild(div)
+
+})
+
+}
+
 function saveSystem(){
 
-const system={
+const system = {
 
-name:document.getElementById("name").value,
-dice:document.getElementById("dice").value,
-stats:document.getElementById("stats").value,
-rule:document.getElementById("rule").value
+name:document.getElementById("systemName").value,
+stats:stats
 
 }
 
@@ -21,7 +62,7 @@ showSystems()
 
 function showSystems(){
 
-const list=document.getElementById("list")
+const list=document.getElementById("systemList")
 
 list.innerHTML=""
 
@@ -29,32 +70,21 @@ systems.forEach((s,i)=>{
 
 const div=document.createElement("div")
 
+let statText=""
+
+s.stats.forEach(st=>{
+statText+=st.name+"("+st.dice+") "
+})
+
 div.innerHTML=`
 <b>${s.name}</b>
 <br>
-ダイス:${s.dice}
-<br>
-能力値:${s.stats}
-<br>
-<button onclick="playSystem(${i})">🎲試す</button>
+能力値:${statText}
 `
 
 list.appendChild(div)
 
 })
-
-}
-
-function playSystem(i){
-
-const s=systems[i]
-
-alert(
-"システム:"+s.name+"\n"+
-"ダイス:"+s.dice+"\n"+
-"能力値:"+s.stats+"\n"+
-"ルール:"+s.rule
-)
 
 }
 
