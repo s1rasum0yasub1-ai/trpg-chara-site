@@ -3,31 +3,30 @@
 
 <head>
 <meta charset="UTF-8">
-<title>自作TRPGビルダー</title>
+<title>TRPG Forge</title>
 <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-<h1>自作TRPG作成</h1>
+<h1>TRPG作成</h1>
 
 システム名
-<input id="name">
+<input id="systemName">
 
-ダイス
-<input id="dice">
+<h2>能力値</h2>
 
-能力値（カンマ区切り）
-<input id="stats">
+<div id="stats"></div>
 
-判定ルール
-<textarea id="rule"></textarea>
+<button onclick="addStat()">能力値追加</button>
 
-<button onclick="saveSystem()">💾保存</button>
+<br><br>
+
+<button onclick="saveSystem()">💾TRPG保存</button>
 
 <h2>作成済みTRPG</h2>
 
-<div id="list"></div>
+<div id="systemList"></div>
 
 <script src="script.js"></script>
 
